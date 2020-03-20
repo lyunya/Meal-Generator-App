@@ -10,7 +10,7 @@ const myHeaders = new Headers({
 });
 
 const fetchRecipe = (finalURL) => {
-return  fetch(url, {headers: {
+return  fetch(finalURL, {headers: {
 'x-rapidapi-key': apiKey,
 'X-RapidAPI-Host': apiHost
 }})
@@ -59,18 +59,17 @@ function formatMealGenParams(params) {
     return queryItems.join('&');
   }
   
-  function getMealPlan(mealCals, mealDiet, mealExclude) {
+  function getMealPlan(mealCals=2300, mealDiet='paleo') {
     //create the query parameters
     const params = {
       //set the "q" parameter equal to the value the user input
       targetCalories: mealCals,
-      diet: mealDiet,
-      exclude: mealExclude
+      diet: mealDiet
     };
     //create a string with the original URL and the new parameters
     const queryString = formatMealGenParams(params)
     const finalURL = mealGenURL + queryString;
-    console.log(getMealPlan(2300, paleo, sugar), 'leons big ol test');
+    console.log(getMealPlan(), 'leons big ol test');
 }
 
 getMealPlan();
