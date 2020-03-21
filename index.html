@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Meal App Generator</title>
     <link rel='stylesheet' href='index.css' />
+    <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,11 +16,11 @@
     <section id='userInputForm'>
         <form>
             <label for="dailyCals" name="daily calories">I want to eat 
-                <input type="number" id="dailycals" name="daily calories"
+                <input type="number" id="js-dailycals" name="daily calories"
                 min="1000" max="4000" placeholder="2000" step='100'> in a day.
             </label> <br>
             <h3>Select any dietary restrictions</h3>
-            <select id='dietRestrict'> 
+            <select id='js-dietRestrict'> 
                 <option value="">No Restrictions</option>
                 <option value="Gluten Free">Gluten Free</option>
                 <option value="Ketogenic">Ketogenic</option>
@@ -29,7 +30,7 @@
                 <option value="Paleo">Paleo</option>
                 <option value="Whole30">Whole30</option>
             </select> <br>
-            <button class="button-primary" id="get_meal">Generate Daily Meal Plan</button>
+            <input type='submit' class="button-primary" id="get_meal" value="Generate Daily Meal Plan">
         </form>
     </section>
     <script src="index.js"></script>
