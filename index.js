@@ -85,8 +85,7 @@ async function renderResults(){
   let foodResults;
   if(result.length===0){
     foodResults= `<div>
-    <p>We can not generate a meal plan with the selected calorie and diet
-    input, please try again</p>
+    <p>We can not generate a meal plan with that calorie amount and diet, please try again</p>
     </div>`
   }else{
     foodResults= result.map(item=>{
