@@ -6,8 +6,10 @@
     <title>Daily Meal App Generator</title>
     <link rel='stylesheet' href='index.css' />
     <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+    <div id='wrapper'>
     <header>
        <h1> Daily Meals Generator </h1>
        <h2> Need help deciding what to eat today? Let's create a meal plan!
@@ -17,7 +19,7 @@
         <form>
             <label for="dailyCals" name="daily calories">I want to eat 
                 <input type="number" id="js-dailycals" name="daily calories"
-                min="1000" max="4000" placeholder="2000" step='100'> in a day.
+                min="1000" max="4000" placeholder="2000" value="2000" step='100'> in a day.
             </label> <br>
             <h3>Select any dietary restrictions</h3>
             <select id='js-dietRestrict'> 
@@ -25,7 +27,7 @@
                 <option value="Gluten Free">Gluten Free</option>
                 <option value="Ketogenic">Ketogenic</option>
                 <option value="Vegetarian">Vegetarian</option>
-                <option value="Pescetarian"> Vegan</option>
+                <option value="Vegan">Vegan</option>
                 <option value="Pescetarian">Pescetarian</option>
                 <option value="Paleo">Paleo</option>
                 <option value="Whole30">Whole30</option>
@@ -33,6 +35,10 @@
             <input type='submit' class="button-primary" id="get_meal" value="Generate Daily Meal Plan">
         </form>
     </section>
+    <section id='mealResults'>
+
+    </section>
+</div>
     <script src="index.js"></script>
 </body>
 </html>
