@@ -19,7 +19,7 @@ return  fetch(urlString, {headers: {
 .then(responseJson=>responseJson)
 .catch(err => {
   console.log(err);
-  $('#js-error-message').text(`Something went wrong: ${err.message}`);
+  $('#mealResults').text(`Something went wrong: ${err.message}`);
  });
 }
 
@@ -91,7 +91,7 @@ async function renderResults(){
   }else{
     foodResults= result.map(item=>{
       return  `<div>
-       <p>Title: ${item.title}</p>
+       <p>${item.title}</p>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
        <a href=${item.recipe_url}><img src=${item.imageUrls}>
