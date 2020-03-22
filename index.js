@@ -19,7 +19,7 @@ return  fetch(urlString, {headers: {
 .then(responseJson=>responseJson)
 .catch(err => {
   console.log(err);
-  $('#js-error-message').text(`Something went wrong: ${err.message}`);
+  $('#mealResults').text(`Something went wrong: ${err.message}`);
  });
 }
 
