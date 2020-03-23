@@ -4,16 +4,16 @@ const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
 const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
 
-//adds
+
 const fetchResults = (urlString) => {
 return  fetch(urlString, {headers: {
 'x-rapidapi-key': apiKey,
 'X-RapidAPI-Host': apiHost
-}}) .then(response => {
+}})
+.then(response => {
   if (response.ok) {
     return response.json();
   }
-  
   throw new Error(response.statusText);
 })
 .then(responseJson=>responseJson)
@@ -33,31 +33,28 @@ function formatMealGenParams(params) {
 }
   
 async function setMealResults(){
-    console.log("line 33 are you here first API call url?", finalURL);
-   const response= await fetchResults(finalURL);
-   const responseMeals=response.meals;
-   result= responseMeals;
-console.log("did this work",result);
-return result;
-   
+  console.log("line 33 are you here first API call url?", finalURL);
+  const response= await fetchResults(finalURL);
+  const responseMeals=response.meals;
+  result= responseMeals;
+  console.log("did this work",result);
+  return result; 
 }
- async function buildFinalResults(){
-  await setMealResults();
-  console.log("did this persist", result);
-  // .then(res=> result= res.meals)
-   for(let i=0; i<result.length; i++){
-         const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${result[i].id}/information`;
-   const recipeLinks= await fetchResults(recipeURL);
-   console.log("this is the results",recipeLinks.image);
-   result[i]["recipe_url"]=recipeLinks.sourceUrl
-   result[i]["summary"]=recipeLinks.summary
-   result[i].imageUrls=recipeLinks.image
 
-
-   }
-   console.log("this is the result now", result);
-   return result
- }
+async function buildFinalResults(){
+ await setMealResults();
+ console.log("did this persist", result);
+ for(let i=0; i<result.length; i++){
+  const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${result[i].id}/information`;
+  const recipeLinks= await fetchResults(recipeURL);
+  console.log("this is the results",recipeLinks.image);
+  result[i]["recipe_url"]=recipeLinks.sourceUrl
+  result[i]["summary"]=recipeLinks.summary
+  result[i].imageUrls=recipeLinks.image
+  }
+  console.log("this is the result now", result);
+  return result;
+}
 
 function getMealPlanQuery(mealCals, mealDiet) {
   //create the query parameters
@@ -67,7 +64,8 @@ function getMealPlanQuery(mealCals, mealDiet) {
       //set the "targetCalories" parameter equal to the value the user input, same with diet
       targetCalories: mealCals,
     };
-  }else{
+  }
+  else{
     params = {
       //set the "targetCalories" parameter equal to the value the user input, same with diet
       targetCalories: mealCals,
@@ -75,34 +73,33 @@ function getMealPlanQuery(mealCals, mealDiet) {
     };
   }
     //create a string with the original URL and the new parameters
-    const queryString = formatMealGenParams(params)
-    finalURL = mealGenURL + queryString;
+  const queryString = formatMealGenParams(params)
+  finalURL = mealGenURL + queryString;
 }
+
 async function renderResults(){
   await buildFinalResults();
   $('#mealResults').empty();
-
   let foodResults;
   if(result.length===0){
     foodResults= `<div>
     <p>We can not generate a meal plan with that calorie amount and diet, please try again</p>
     </div>`
-  }else{
+  } 
+  else {
     foodResults= result.map(item=>{
       return  `<div>
        <p>${item.title}</p>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
-       <a href=${item.recipe_url}><img src=${item.imageUrls}>
-       </a> 
+       <a href=${item.recipe_url}><img src=${item.imageUrls}></a>
        <p>${item.summary}</p>
        </div>`
      })
   }
-
-
   $('#mealResults').append(foodResults);
 }
+
 function getMealPlan(){
     $('form').submit(event => {
     event.preventDefault();
@@ -111,7 +108,6 @@ function getMealPlan(){
     getMealPlanQuery(dailyCals, dietRestricts);
     renderResults();
     });
-    
 }
 
 getMealPlan();
