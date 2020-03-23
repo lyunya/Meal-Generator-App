@@ -60,7 +60,8 @@ async function setMealResults(){
   console.log("line 38 are you here first API call url?", finalURL);
   const response = await fetchResults(finalURL);
   const responseMeals = response.meals;
-  result = responseMeals;
+  const responseNutrients = response.nutrients;
+  result = Object.assign(responseMeals, responseNutrients);
   console.log("did this work",result);
   return result; 
 }
@@ -92,7 +93,7 @@ async function renderResults(){
   } 
   else {
     foodResults= result.map(item=>{
-      return  `<div>
+      return  `<div id="mealitem">
        <p>${item.title}</p>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
@@ -116,4 +117,3 @@ function getMealPlan(){
 }
 
 getMealPlan();
-
