@@ -47,8 +47,10 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     }
+#dailyCalsForm{
+    margin-left: 2%;
+}
 
 #js-dailycals{
     color: #444;
