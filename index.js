@@ -23,7 +23,29 @@ return  fetch(urlString, {headers: {
  });
 }
 
-//function to add parameters into key:vale to add to fetch URL
+function getMealPlanQuery(mealCals, mealDiet) {
+  //create the query parameters
+  let params;
+  //if user doesn't select a diet requirement, then only pass calories parameter
+  if(mealDiet === ""){
+    params = {
+      targetCalories: mealCals,
+    };
+  }
+  else{
+    params = {
+      //set the "targetCalories" parameter equal to the value the user input, same with diet
+      targetCalories: mealCals,
+      diet: mealDiet
+    };
+  }
+    //create a string with the original URL and the new parameters
+  const queryString = formatMealGenParams(params)
+  finalURL = mealGenURL + queryString;
+}
+
+
+//function to add parameters into key:value to add to fetch URL
 function formatMealGenParams(params) {
     //create an array of the keys in the "params" object
     const queryItems = Object.keys(params)
@@ -57,26 +79,6 @@ async function buildFinalResults(){
   return result;
 }
 
-function getMealPlanQuery(mealCals, mealDiet) {
-  //create the query parameters
-  let params;
-  //if user doesn't select a diet requirement, then only pass calories parameter
-  if(mealDiet === ""){
-    params = {
-      targetCalories: mealCals,
-    };
-  }
-  else{
-    params = {
-      //set the "targetCalories" parameter equal to the value the user input, same with diet
-      targetCalories: mealCals,
-      diet: mealDiet
-    };
-  }
-    //create a string with the original URL and the new parameters
-  const queryString = formatMealGenParams(params)
-  finalURL = mealGenURL + queryString;
-}
 
 //waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){

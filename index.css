@@ -42,7 +42,7 @@ section {
 form {
     width: 100%;
     height: 100%;
-    padding-bottom: 75px;
+    padding-bottom: 45px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,8 +100,9 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     width: 100vw;
+    
 }
 #mealResults p:nth-of-type(1){
     font-size: 24px;
@@ -124,5 +125,6 @@ img{
         width: 40%;
         padding: 30px 0;
         text-align: center;
+        margin-left: 30%;
     }
 }
