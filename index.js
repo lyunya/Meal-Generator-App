@@ -4,7 +4,7 @@ const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
 const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
 
-
+//function to pass MealGenURL and recipeURL to make fetch call to spoonacular API w/ headers
 const fetchResults = (urlString) => {
 return  fetch(urlString, {headers: {
 'x-rapidapi-key': apiKey,
@@ -23,6 +23,7 @@ return  fetch(urlString, {headers: {
  });
 }
 
+//function to add parameters into key:vale to add to fetch URL
 function formatMealGenParams(params) {
     //create an array of the keys in the "params" object
     const queryItems = Object.keys(params)
@@ -31,26 +32,26 @@ function formatMealGenParams(params) {
     //return a string of the keys and values, separated by "&"
     return queryItems.join('&');
 }
-  
+
+//function that waits till we put fetch finalURL, then puts mealgen array in result variable
 async function setMealResults(){
-  console.log("line 33 are you here first API call url?", finalURL);
-  const response= await fetchResults(finalURL);
-  const responseMeals=response.meals;
-  result= responseMeals;
+  console.log("line 38 are you here first API call url?", finalURL);
+  const response = await fetchResults(finalURL);
+  const responseMeals = response.meals;
+  result = responseMeals;
   console.log("did this work",result);
   return result; 
 }
 
+//this takes the recipe ID of each meal, fetches the second endpoint with Recipe image, URL, and Description, and adds it to each meal array
 async function buildFinalResults(){
  await setMealResults();
- console.log("did this persist", result);
  for(let i=0; i<result.length; i++){
   const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${result[i].id}/information`;
-  const recipeLinks= await fetchResults(recipeURL);
-  console.log("this is the results",recipeLinks.image);
-  result[i]["recipe_url"]=recipeLinks.sourceUrl
-  result[i]["summary"]=recipeLinks.summary
-  result[i].imageUrls=recipeLinks.image
+  const recipeLinks = await fetchResults(recipeURL);
+  result[i]["recipe_url"] = recipeLinks.sourceUrl
+  result[i]["summary"] = recipeLinks.summary
+  result[i].imageUrls = recipeLinks.image
   }
   console.log("this is the result now", result);
   return result;
@@ -59,9 +60,9 @@ async function buildFinalResults(){
 function getMealPlanQuery(mealCals, mealDiet) {
   //create the query parameters
   let params;
+  //if user doesn't select a diet requirement, then only pass calories parameter
   if(mealDiet === ""){
     params = {
-      //set the "targetCalories" parameter equal to the value the user input, same with diet
       targetCalories: mealCals,
     };
   }
@@ -77,6 +78,7 @@ function getMealPlanQuery(mealCals, mealDiet) {
   finalURL = mealGenURL + queryString;
 }
 
+//waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){
   await buildFinalResults();
   $('#mealResults').empty();
@@ -92,7 +94,7 @@ async function renderResults(){
        <p>${item.title}</p>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
-       <a href=${item.recipe_url}><img src=${item.imageUrls}></a>
+       <a href=${item.recipe_url}><img src=${item.imageUrls} /></a>
        <p>${item.summary}</p>
        </div>`
      })
@@ -100,14 +102,15 @@ async function renderResults(){
   $('#mealResults').append(foodResults);
 }
 
+//once the Get Meal Plan button gets submited, we grab values from user input, then pass those params, and render the results
 function getMealPlan(){
-    $('form').submit(event => {
-    event.preventDefault();
-    const dailyCals = $('#js-dailycals').val();
-    const dietRestricts = $('#js-dietRestrict').val();
-    getMealPlanQuery(dailyCals, dietRestricts);
-    renderResults();
-    });
+  $('form').submit(event => {
+  event.preventDefault();
+  const dailyCals = $('#js-dailycals').val();
+  const dietRestricts = $('#js-dietRestrict').val();
+  getMealPlanQuery(dailyCals, dietRestricts);
+  renderResults();
+  });
 }
 
 getMealPlan();
