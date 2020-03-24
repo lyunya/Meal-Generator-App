@@ -137,6 +137,10 @@ function getMealPlan(){
   const dietRestricts = $('#js-dietRestrict').val();
   getMealPlanQuery(dailyCals, dietRestricts);
   renderResults();
+  var viewportmeta = document.querySelector('meta[name="viewport"]');
+     if (viewportmeta) {
+        viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
+     }
   });
 }
 
