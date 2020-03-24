@@ -150,6 +150,8 @@ img{
     width: 80%;
 }
 
+input, select { 
+    font-size: 100%; }
         
 .button-primary:hover{
         background-color:#4095c6;
