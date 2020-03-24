@@ -82,13 +82,18 @@ async function buildFinalResults(){
   console.log("this is the result now", Object.keys(result));
   return result;
 }
-// function makeImageLink(linkURL, imageURL ){
-//   var link = $("<a>");
-//   link.attr("href", linkURL);
-//   link.addClass("link");
-//   link.prepend($('<img>',{src:imageURL}))
-//   return link
-// }
+/*
+function makeImageLink(linkURL, imageURL ){
+  var link = $("<a>");
+  link.attr("href", linkURL);
+  link.addClass("link");
+ link.prepend($('<img>',{src:imageURL}))
+ console.log(makeImageLink('www.google.com', 'www.tomato.com'));
+ return link
+}
+*/
+
+
 
 //waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){
@@ -123,11 +128,13 @@ async function renderResults(){
        </div>`
      })
   }
-  // ${makeImageLink(item.recipe_url,item.imageUrls)}
-
   $('#nutrientInfo').append(nutrientInformation);
   $('#mealResults').append(foodResults);
 }
+
+$('input, select, textarea').on('focus blur', function(event) {
+  $('meta[name=viewport]').attr('content', 'width=device-width,initial-scale=1,maximum-scale=' + (event.type == 'blur' ? 10 : 1));
+});
 
 //once the Get Meal Plan button gets submited, we grab values from user input, then pass those params, and render the results
 function getMealPlan(){

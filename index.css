@@ -80,8 +80,8 @@ form {
     color: #444;
     line-height: 1.3;
     padding: .6em 1.2em .5em .8em;
-    width: 33%;
-    max-width: 33%; 
+    width: 31%;
+    max-width: 31%; 
     box-sizing: border-box;
     margin: 0;
     border: 1px solid #aaa;
@@ -90,6 +90,7 @@ form {
     }
 #dailyCalsForm{
     display: inline;
+    left: -40px;
 }
 
 body select { 
