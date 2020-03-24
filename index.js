@@ -135,12 +135,12 @@ function getMealPlan(){
   event.preventDefault();
   const dailyCals = $('#js-dailycals').val();
   const dietRestricts = $('#js-dietRestrict').val();
+  var viewportmeta = document.querySelector('meta[name="viewport"]');
+  if (viewportmeta) {
+     viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
+  }
   getMealPlanQuery(dailyCals, dietRestricts);
   renderResults();
-  var viewportmeta = document.querySelector('meta[name="viewport"]');
-     if (viewportmeta) {
-        viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
-     }
   });
 }
 
