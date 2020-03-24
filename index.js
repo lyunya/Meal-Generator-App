@@ -1,5 +1,5 @@
 let finalURL;
-let result;
+let result= new Object();
 const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
 const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
@@ -61,7 +61,9 @@ async function setMealResults(){
   const response = await fetchResults(finalURL);
   const responseMeals = response.meals;
   const responseNutrients = response.nutrients;
-  result = Object.assign(responseMeals, responseNutrients);
+  result.meals=responseMeals
+  result.nutrients=responseNutrients
+  // Object.assign(meals=responseMeals, nutrients=responseNutrients);
   console.log("did this work",result);
   return result; 
 }
@@ -69,30 +71,46 @@ async function setMealResults(){
 //this takes the recipe ID of each meal, fetches the second endpoint with Recipe image, URL, and Description, and adds it to each meal array
 async function buildFinalResults(){
  await setMealResults();
- for(let i=0; i<result.length; i++){
-  const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${result[i].id}/information`;
+ const meals=result.meals
+ for(let i=0; i<meals.length; i++){
+  const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${meals[i].id}/information`;
   const recipeLinks = await fetchResults(recipeURL);
-  result[i]["recipe_url"] = recipeLinks.sourceUrl
-  result[i]["summary"] = recipeLinks.summary
-  result[i].imageUrls = recipeLinks.image
+  meals[i]["recipe_url"] = recipeLinks.sourceUrl
+  meals[i]["summary"] = recipeLinks.summary
+  meals[i].imageUrls = recipeLinks.image
   }
-  console.log("this is the result now", result);
+  console.log("this is the result now", Object.keys(result));
   return result;
 }
-
+// function makeImageLink(linkURL, imageURL ){
+//   var link = $("<a>");
+//   link.attr("href", linkURL);
+//   link.addClass("link");
+//   link.prepend($('<img>',{src:imageURL}))
+//   return link
+// }
 
 //waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){
   await buildFinalResults();
+  const meals = result.meals;
+  const nutrientInformation =`<div>
+  <h3>Daily Meal Plan Nutritional Information </h3>
+  <p>Calories: ${result.nutrients.calories} </p>
+  <p>Protein: ${result.nutrients.protein} </p>
+  <p>Fat: ${result.nutrients.fat} </p>
+  <p>Carbohydrates: ${result.nutrients.carbohydrates} </p>
+  </div>`
   $('#mealResults').empty();
   let foodResults;
-  if(result.length===0){
+  if(meals.length===0){
     foodResults= `<div>
     <p>We can not generate a meal plan with that calorie amount and diet, please try again</p>
     </div>`
   } 
   else {
-    foodResults= result.map(item=>{
+ 
+    foodResults= meals.map(item=>{
       return  `<div id="mealitem">
       <a href=${item.recipe_url}><p>${item.title}</p></a>
        <p>Minutes: ${item.readyInMinutes}</p>
@@ -102,6 +120,9 @@ async function renderResults(){
        </div>`
      })
   }
+  // ${makeImageLink(item.recipe_url,item.imageUrls)}
+
+  $('#nutrientInfo').append(nutrientInformation);
   $('#mealResults').append(foodResults);
 }
 
