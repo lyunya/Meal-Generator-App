@@ -96,15 +96,16 @@ async function renderResults(){
   const meals = result.meals;
   const nutrientInformation =`<div>
   <h3>Daily Meal Plan Nutritional Information </h3>
-  <p>Calories: ${result.nutrients.calories} </p>
-  <p>Protein: ${result.nutrients.protein} </p>
-  <p>Fat: ${result.nutrients.fat} </p>
-  <p>Carbohydrates: ${result.nutrients.carbohydrates} </p>
+  <p>${result.nutrients.calories} calories</p>
+  <p>Protein: ${result.nutrients.protein} grams</p>
+  <p>Fat: ${result.nutrients.fat} grams</p>
+  <p>Carbohydrates: ${result.nutrients.carbohydrates} grams</p>
   </div>`
   $('#nutrientInfo').empty();
   $('#mealResults').empty();
   let foodResults;
   if(meals.length===0){
+    $('#nutrientInfo').empty();
     foodResults= `<div>
     <p>We can not generate a meal plan with that calorie amount and diet, please try again</p>
     </div>`

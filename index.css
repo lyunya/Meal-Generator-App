@@ -3,13 +3,13 @@
     -webkit-appearance: none;
     }
 
-body {
+body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Varela', sans-serif;
-    background: url('https://i.pinimg.com/originals/b0/43/c1/b043c1be7ed0d4f085e356e159250c69.jpg') fixed;
+    background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80') fixed;
     background-repeat: no-repeat;
     background-size:cover;
     }
@@ -87,29 +87,37 @@ form {
     border-radius: .5em;
     }
 
-#js-dietRestrict{
+body select { 
     display: block;
-    color: #444;
-    line-height: 1.3;
-    padding: .6em 1.4em .5em .8em;
-    width: fit-content;
-    box-sizing: border-box;
-    margin: 0;
-    border: 1px solid #aaa;
-    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-    border-radius: .5em;
-    }
-
-select {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    }
-
+    padding: 10px 40px 10px 10px !important; 
+    max-width: 100%; 
+    height: auto !important; 
+    border: 1px solid #e3e3e3; 
+    border-radius: 3px; 
+    background: url("https://i.ibb.co/b7xjLrB/selectbox-arrow.png") right center no-repeat; 
+    background-color: #fff; 
+    color: #444444; 
+    font-size: 12px; 
+    line-height: 12px !important; 
+    appearance: none; 
+    /* this is must */ -webkit-appearance: none; 
+    -moz-appearance: none; 
+} 
+/* body select.select_box option */ 
+body select option { 
+    padding: 0 4px; 
+} 
+/* for IE and Edge */ 
+select::-ms-expand { 
+    display: none; 
+} 
+select:disabled::-ms-expand { 
+    background: #f60; 
+}    
 .button-primary{
     display:flex;
     padding:0.3em 1.2em;
-    margin:0 0.3em 0.3em 0;
+    margin: 1em 0.3em 0.3em 0;
     border-radius:2em;
     box-sizing: border-box;
     text-decoration:none;
@@ -140,6 +148,7 @@ select {
 img{
     width: 80%;
 }
+
         
 .button-primary:hover{
         background-color:#4095c6;
