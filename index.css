@@ -36,7 +36,7 @@ header{
 }
 #nutrientInfo{
     background-color: rgba(255, 255, 255, 0.5);
-    width: 30%;
+    width: 60%;
     text-align: center;
     border-radius: 3px;
 }
@@ -126,7 +126,7 @@ select {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 70%;
+    width: 80%;
     
 }
 #mealResults p:nth-of-type(1){
@@ -152,12 +152,12 @@ img{
     #mealResults{
         display: flex;
         flex-direction: row;
-        width: 70%;
+        width: 80%;
         text-align: center;
         justify-content: center;
     }
     #mealitem{
-        width: 30%;
+        width: 33%;
         vertical-align: middle;
     }
     img{
