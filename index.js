@@ -101,6 +101,7 @@ async function renderResults(){
   <p>Fat: ${result.nutrients.fat} </p>
   <p>Carbohydrates: ${result.nutrients.carbohydrates} </p>
   </div>`
+  $('#nutrientInfo').empty();
   $('#mealResults').empty();
   let foodResults;
   if(meals.length===0){
