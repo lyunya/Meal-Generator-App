@@ -1,4 +1,4 @@
-# Meal Gen App
+# Meal Generator App
 ## What is this and why?
 As someone who loves to cook, I sometimes struggle with coming up with ideas for what meals to make.
 I thought what better way to remedy this problem than to create my own meal generator app. This app
