@@ -108,6 +108,7 @@ form {
 #dailyCalsForm{
     display: inline;
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 body select { 

@@ -57,7 +57,6 @@ function formatMealGenParams(params) {
 
 //function that waits till we put fetch finalURL, then puts mealgen array in result variable
 async function setMealResults(){
-  console.log("line 38 are you here first API call url?", finalURL);
   const response = await fetchResults(finalURL);
   const responseMeals = response.meals;
   const responseNutrients = response.nutrients;
@@ -108,10 +107,11 @@ async function renderResults(){
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
        <a href = ${item.recipe_url} target="_blank"><img src= ${item.imageUrls}></a>
-       <p>${item.summary}</p>
+       
        </div>`
      })
   }
+  $('#get_meal').val('try another meal plan');
   $('#nutrientInfo').append(nutrientInformation);
   $('#mealResults').append(foodResults);
 }
