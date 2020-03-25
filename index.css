@@ -88,8 +88,9 @@ form {
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
     }
-label{
-    display: inline-block;
+
+#dailyCalsForm{
+    display: inline;
     margin-right: 5px;
 }
 
@@ -163,8 +164,7 @@ input, select, option {
     }  
 
 @media screen and (min-width: 762) {
-    label{
-        display: inline-block;
+    #dailyCalsForm{
         margin-right: 0px;
     }
 }
