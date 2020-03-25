@@ -188,7 +188,7 @@ input, select, option {
         margin-right: 0px;
     }
 }
-@media (min-width: 1300px){
+@media (min-width: 1100px){
     header{
         padding: 30px 200px;
     }
