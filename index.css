@@ -88,9 +88,8 @@ form {
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
     }
-#dailyCalsForm{
-    display: inline;
-    left: -40px;
+label{
+    display: inline-block;
 }
 
 body select { 
@@ -103,8 +102,8 @@ body select {
     background: url("https://i.ibb.co/b7xjLrB/selectbox-arrow.png") right center no-repeat; 
     background-color: #fff; 
     color: #444444; 
-    font-size: 12px; 
-    line-height: 12px !important; 
+    font-size: 16px; 
+    line-height: 16px !important; 
     appearance: none; 
     /* this is must */ -webkit-appearance: none; 
     -moz-appearance: none; 
@@ -212,5 +211,8 @@ input, select, option {
     }
     img{
         width: 100%;
+    }
+    body select{
+        font-size: 12px;
     }
 }
