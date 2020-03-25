@@ -51,6 +51,7 @@ h2{
     font-size: 1.2em;
 }
 a{
+    display: inline-block;
     text-decoration: none;
 }
 a:hover{

@@ -120,12 +120,12 @@ async function renderResults(){
  
     foodResults= meals.map(item=>{
       return  `<div id="mealitem">
-      <a href=${item.recipe_url}><p>${item.title}</p></a>
+      <a href = ${item.recipe_url}><p>${item.title}</p></a>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
-       <a>
-       <a href=${item.recipe_url}><img src=${item.imageUrls} /></a>
-       </a>
+    
+       <a href = ${item.recipe_url}><img src= ${item.imageUrls} /></a>
+      
        <p>${item.summary}</p>
        </div>`
      })
