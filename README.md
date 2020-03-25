@@ -7,10 +7,12 @@ on two parameters: # of calories and any diet restrictions. It then uses the Rec
 Now I can easily find new meals to cook!
 
 Landing Page
-![Image of Home Screen](https://ibb.co/0nTnSpv)
+[Image of Home Screen]
+(https://ibb.co/0nTnSpv)
 
 Meals Generated
-![Image of Meals]https://ibb.co/R2Nmf6Q
+[Image of Meals]
+(https://ibb.co/R2Nmf6Q)
 
 ## Built With
 * HTML
