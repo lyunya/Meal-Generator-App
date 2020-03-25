@@ -76,6 +76,10 @@ a:hover{
 section {
     margin-top: 20px;
     }
+#calorieEntry{
+    display: block;
+    margin-right: 10px;
+}
 
 form {
     padding-bottom: 45px;
@@ -177,6 +181,9 @@ input, select, option {
     }  
 
 @media screen and (min-width: 762) {
+    #calorieEntry{
+        margin-right: 0px;
+    }
     #dailyCalsForm{
         margin-right: 0px;
     }
