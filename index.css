@@ -54,6 +54,11 @@ h3{
     text-align: center;
     font-size: .9em;
 }
+h4{
+    text-align: center;
+    font-size: .7em;
+    margin-top: -5px;
+}
 a{
     display: inline-block;
     text-decoration: none;
@@ -93,6 +98,9 @@ form {
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
     }
+#js-dailycals:out-of-range{
+    background-color: rgba(255, 1, 0, 0.5);
+}
 
 #dailyCalsForm{
     display: inline;
