@@ -1,8 +1,7 @@
 * {
     box-sizing: border-box;
     -webkit-appearance: none;
-    }
-
+}
 body{
     display: flex;
     flex-direction: column;
@@ -13,7 +12,7 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
     font-size: 16px;
-    }
+}
 
 header{
     background-color: rgba(255, 255, 255, 0.5);
@@ -44,7 +43,7 @@ header{
 h1{
     text-align: center;
     font-size: 1.9em;
-    }
+}
 
 h2{
     text-align: center;
@@ -71,11 +70,11 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    }
+}
 
 section {
     margin-top: 20px;
-    }
+}
 #calorieEntry{
     display: block;
     margin-right: 10px;
@@ -87,7 +86,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    }
+}
 
 
 #js-dailycals{
@@ -101,7 +100,7 @@ form {
     border: 1px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
-    }
+}
 #js-dailycals:out-of-range{
     background-color: rgba(255, 1, 0, 0.5);
 }
@@ -127,7 +126,7 @@ body select {
     /* this is must */ -webkit-appearance: none; 
     -moz-appearance: none; 
 } 
-/* body select.select_box option */ 
+
 body select option { 
     padding: 0 4px; 
 } 
@@ -150,10 +149,9 @@ select:disabled::-ms-expand {
     text-align: center;
     width: fit-content;
     transition: all 0.2s;
-    }
+}
 
 #mealResults{
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,11 +172,12 @@ img{
 }
 
 input, select, option { 
-    font-size: 100%; }
+    font-size: 100%; 
+}
         
 .button-primary:hover{
         background-color:#4095c6;
-    }  
+}  
 
 @media screen and (min-width: 762) {
     #calorieEntry{
@@ -188,6 +187,7 @@ input, select, option {
         margin-right: 0px;
     }
 }
+
 @media (min-width: 1100px){
     header{
         padding: 30px 200px;

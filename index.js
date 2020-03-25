@@ -1,5 +1,5 @@
 let finalURL;
-let result= new Object();
+let result = new Object();
 const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
 const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
@@ -61,10 +61,8 @@ async function setMealResults(){
   const response = await fetchResults(finalURL);
   const responseMeals = response.meals;
   const responseNutrients = response.nutrients;
-  result.meals=responseMeals
-  result.nutrients=responseNutrients
-  // Object.assign(meals=responseMeals, nutrients=responseNutrients);
-  console.log("did this work",result);
+  result.meals=responseMeals;
+  result.nutrients=responseNutrients;
   return result; 
 }
 
@@ -79,21 +77,8 @@ async function buildFinalResults(){
   meals[i]["summary"] = recipeLinks.summary
   meals[i].imageUrls = recipeLinks.image
   }
-  console.log("this is the result now", Object.keys(result));
   return result;
 }
-/*
-function makeImageLink(linkURL, imageURL ){
-  var link = $("<a>");
-  link.attr("href", linkURL);
-  link.addClass("link");
- link.prepend($('<img>',{src:imageURL}))
- console.log(makeImageLink('www.google.com', 'www.tomato.com'));
- return link
-}
-*/
-
-
 
 //waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){
@@ -117,7 +102,6 @@ async function renderResults(){
     </div>`
   } 
   else {
- 
     foodResults= meals.map(item=>{
       return  `<div id="mealitem">
       <a href = ${item.recipe_url} target="_blank"><p>${item.title}</p></a>
@@ -132,20 +116,12 @@ async function renderResults(){
   $('#mealResults').append(foodResults);
 }
 
-$('input, select, textarea').on('focus blur', function(event) {
-  $('meta[name=viewport]').attr('content', 'width=device-width,initial-scale=1,maximum-scale=' + (event.type == 'blur' ? 10 : 1));
-});
-
-//once the Get Meal Plan button gets submited, we grab values from user input, then pass those params, and render the results
+//once the Get Meal Plan button gets submited, values from user input passed to variables, then pass those params, and render the results
 function getMealPlan(){
   $('form').submit(event => {
   event.preventDefault();
   const dailyCals = $('#js-dailycals').val();
   const dietRestricts = $('#js-dietRestrict').val();
-  var viewportmeta = document.querySelector('meta[name="viewport"]');
-  if (viewportmeta) {
-     viewportmeta.setAttribute('content', 'width=device-width, maximum-scale=1.0, initial-scale=1.0');
-  }
   getMealPlanQuery(dailyCals, dietRestricts);
   renderResults();
   });

@@ -10,35 +10,36 @@
 </head>
 <body>
     <div id='wrapper'>
-    <header>
-       <h1> Daily Meals Generator </h1>
-       <h2> Need help deciding what to eat? <br> 
-        Let's create a meal plan!</h2>
-       <section id='userInputForm'>
-        <form>
-            <label name="daily calories" id='dailyCalsForm' for='calorie entry'><h3 id='calorieEntry'>I want to eat 
-                <input type="number" inputmode="numeric" id="js-dailycals" name="daily calories"
-                min="1000" max="3000" placeholder="2000" value="2000" step='100' aria-label='enter calories'> calories</h3>
-            </label>
-            <h4>Enter between 1,000 - 3,000</h4>
-            <h3>Select any dietary restrictions</h3>
-            <select id='js-dietRestrict'> 
-                <option value="">No Restrictions</option>
-                <option value="Gluten Free">Gluten Free</option>
-                <option value="Vegetarian">Vegetarian</option>
-                <option value="Vegan">Vegan</option>
-                <option value="Pescetarian">Pescetarian</option>
-                <option value="Paleo">Paleo</option>
-            </select> <br>
-            <input type='submit' class="button-primary" id="get_meal" value="Generate Daily Meal Plan">
-        </form>
-    </section>
-    </header>
-    <section id="nutrientInfo">
-    </section>
-    <section id='mealResults'>
-    </section>
-</div>
+       <header>
+        <h1> Daily Meals Generator </h1>
+        <h2> Need help deciding what to eat? <br> 
+             Let's create a meal plan!
+        </h2>
+        <section id='userInputForm'>
+            <form>
+                <label name="daily calories" id='dailyCalsForm' for='calorie entry'><h3 id='calorieEntry'>I want to eat 
+                    <input type="number" inputmode="numeric" id="js-dailycals" name="daily calories"
+                    min="1000" max="3000" placeholder="2000" value="2000" step='100' aria-label='enter calories'> calories</h3>
+                </label>
+                <h4>Enter between 1,000 - 3,000</h4>
+                <h3>Select any dietary restrictions</h3>
+                <select id='js-dietRestrict'> 
+                    <option value="">No Restrictions</option>
+                    <option value="Gluten Free">Gluten Free</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Pescetarian">Pescetarian</option>
+                    <option value="Paleo">Paleo</option>
+                </select> <br>
+                <input type='submit' class="button-primary" id="get_meal" value="Generate Daily Meal Plan">
+            </form>
+        </section>
+        </header>
+        <section id="nutrientInfo">
+        </section>
+        <section id='mealResults'>
+        </section>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
