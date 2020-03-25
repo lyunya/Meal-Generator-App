@@ -174,7 +174,8 @@ input, select, option {
         padding: 30px 200px;
     }
     #nutrientInfo{
-        width: 20%
+        width: 30%;
+        
     }
     #mealResults{
         display: flex;

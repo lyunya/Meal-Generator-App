@@ -101,7 +101,7 @@ async function renderResults(){
   const meals = result.meals;
   const nutrientInformation =
   `<div>
-  <h3>Daily Meal Plan Nutritional Information </h3>
+  <h3>Daily Meal Plan Nutritional Information</h3>
   <p>${result.nutrients.calories} calories</p>
   <p>Protein: ${result.nutrients.protein} grams</p>
   <p>Fat: ${result.nutrients.fat} grams</p>
@@ -120,12 +120,10 @@ async function renderResults(){
  
     foodResults= meals.map(item=>{
       return  `<div id="mealitem">
-      <a href = ${item.recipe_url}><p>${item.title}</p></a>
+      <a href = ${item.recipe_url} target="_blank"><p>${item.title}</p></a>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
-    
-       <a href = ${item.recipe_url}><img src= ${item.imageUrls} /></a>
-      
+       <a href = ${item.recipe_url} target="_blank"><img src= ${item.imageUrls}></a>
        <p>${item.summary}</p>
        </div>`
      })
