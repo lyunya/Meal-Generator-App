@@ -18,7 +18,6 @@ return  fetch(urlString, {headers: {
 })
 .then(responseJson=>responseJson)
 .catch(err => {
-  console.log(err);
   $('#mealResults').text(`Something went wrong: ${err.message}`);
  });
 }
@@ -111,7 +110,7 @@ async function renderResults(){
        </div>`
      })
   }
-  $('#get_meal').val('try another meal plan');
+  $('#get_meal').html('try another meal plan');
   $('#nutrientInfo').append(nutrientInformation);
   $('#mealResults').append(foodResults);
 }
