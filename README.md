@@ -7,12 +7,10 @@ on two parameters: # of calories and any diet restrictions. It then uses the Rec
 Now I can easily find new meals to cook!
 
 Landing Page
-[Image of Home Screen]
-(https://ibb.co/0nTnSpv)
+![Image of Home Screen](https://i.ibb.co/p1c1865/Daily-Meal-Gen-App-Screenshot.png)
 
 Meals Generated
-[Image of Meals]
-(https://ibb.co/R2Nmf6Q)
+![Image of Meals](https://i.ibb.co/mJ0wkyh/Meal-Gen-App-Meals.png)
 
 ## Built With
 * HTML
@@ -21,7 +19,7 @@ Meals Generated
 * jQuery
 
 ## Demo
-https://lyunya.github.io/Meal_Gen_App/
+[Live](https://lyunya.github.io/Meal_Gen_App/)
 
 ## Author
 Leon Marbukh
