@@ -19,7 +19,7 @@ Meals Generated
 * jQuery
 
 ## Demo
-[Live](https://lyunya.github.io/Meal_Gen_App/)
+[Live](https://lyunya.github.io/Meal-Generator-App/)
 
 ## Author
 Leon Marbukh
