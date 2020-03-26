@@ -94,8 +94,8 @@ form {
     color: #444;
     line-height: 1.3;
     padding: .6em .8em .5em .8em;
-    width: 31%;
-    max-width: 31%; 
+    width: 34%;
+    max-width: 34%; 
     box-sizing: border-box;
     margin: 0;
     border: 1px solid #aaa;
@@ -108,9 +108,12 @@ form {
 
 #dailyCalsForm{
     display: inline;
-
     white-space: nowrap;
 }
+
+#js-dietRestrict, option, #js-dailycals {
+    font-family: 'Varela', sans-serif;
+  }
 
 body select { 
     display: block;
@@ -209,7 +212,5 @@ input, select, option, button {
     img{
         width: 100%;
     }
-    body select{
-        font-size: 12px;
-    }
+
 }
