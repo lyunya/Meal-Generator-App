@@ -51,7 +51,7 @@ h2{
 }
 h3{
     text-align: center;
-    font-size: .9em;
+    font-size: 1em;
 }
 h4{
     text-align: center;
@@ -107,7 +107,7 @@ form {
 
 #dailyCalsForm{
     display: inline;
-    margin-right: 5px;
+
     white-space: nowrap;
 }
 
