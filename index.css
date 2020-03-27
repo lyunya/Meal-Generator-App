@@ -229,7 +229,7 @@ input, select, option, button {
   }
   
 
-@media screen and (min-width: 410px) {
+@media screen and (min-width: 375px) {
     header{
         padding: 0px 25px;
     }
