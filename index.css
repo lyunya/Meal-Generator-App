@@ -40,6 +40,7 @@ header{
     width: 60%;
     text-align: center;
     border-radius: 3px;
+    margin: 10px 0px;
 }
 h1{
     text-align: center;
@@ -74,7 +75,13 @@ a:hover{
 }
 
 section {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#calInput{
+    display: inline-block;
 }
 #calorieEntry{
     display: block;
@@ -82,7 +89,9 @@ section {
 }
 
 form {
-    padding-bottom: 45px;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -106,9 +115,8 @@ form {
     background-color: rgba(255, 1, 0, 0.5);
 }
 
-#dailyCalsForm{
-    display: inline;
-    white-space: nowrap;
+#dailyCalsForm, span{
+    display: inline-block;
 }
 
 #js-dietRestrict, select, option, #js-dailycals {
@@ -183,10 +191,14 @@ input, select, option, button {
 } 
 
 .lds-ring {
+    visibility: hidden;
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
+  }
+  #lds-ring-show{
+      visibility: visible;
   }
   .lds-ring div {
     box-sizing: border-box;
@@ -230,11 +242,10 @@ input, select, option, button {
 
 @media (min-width: 1100px){
     header{
-        padding: 30px 200px;
+        padding: 0px 100px;
     }
     #nutrientInfo{
         width: 30%;
-        margin: 10px 0px;
     }
     #mealResults{
         display: flex;

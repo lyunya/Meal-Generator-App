@@ -3,9 +3,13 @@ let result = new Object();
 const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
 const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
+const spinner = document.getElementsByClassName("lds-ring");
+
 
 //function to pass MealGenURL and recipeURL to make fetch call to spoonacular API w/ headers
 const fetchResults = (urlString) => {
+  $('.lds-ring').attr('id','lds-ring-show');
+  console.log(urlString, "leons url string");
 return  fetch(urlString, {headers: {
 'x-rapidapi-key': apiKey,
 'X-RapidAPI-Host': apiHost
@@ -81,6 +85,7 @@ async function buildFinalResults(){
 //waits till buildFinalResults funciton runs, empties out mealResult seciton in HTML, and then creates a div with the meals in the DOM
 async function renderResults(){
   await buildFinalResults();
+  $('.lds-ring').remove();
   const meals = result.meals;
   const nutrientInformation =
   `<div>
