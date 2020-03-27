@@ -227,7 +227,15 @@ input, select, option, button {
       transform: rotate(360deg);
     }
   }
-  
+@media screen and (min-width: 320px){
+    p{
+        margin: 10px;
+    }
+    div{
+        width: auto;
+    }
+   
+}
 
 @media screen and (min-width: 375px) {
     header{
