@@ -18,7 +18,7 @@ body{
 header{
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 3px;
-    padding: 2%;
+    padding: 3%;
     align-items: center;
 }
 #wrapper{
@@ -231,7 +231,13 @@ input, select, option, button {
   }
   
 
-@media screen and (min-width: 762) {
+@media screen and (min-width: 414px) {
+    header{
+        padding: 0px 80px;
+    }
+    h3{
+        white-space: nowrap;
+    }
     #calorieEntry{
         margin-right: 0px;
     }
