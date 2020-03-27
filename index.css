@@ -111,7 +111,7 @@ form {
     white-space: nowrap;
 }
 
-#js-dietRestrict, option, #js-dailycals {
+#js-dietRestrict, select, option, #js-dailycals {
     font-family: 'Varela', sans-serif;
   }
 
@@ -126,7 +126,7 @@ body select {
     background-color: #fff; 
     color: #444444; 
     font-size: 1em;
-    line-height: 1.1em !important; 
+    line-height: 1.2em !important; 
 } 
 
 body select option { 
@@ -151,6 +151,7 @@ select:disabled::-ms-expand {
     text-align: center;
     width: fit-content;
     transition: all 0.2s;
+    font-size: 1.2em;
 }
 
 #mealResults{
