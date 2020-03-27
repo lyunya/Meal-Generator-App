@@ -229,7 +229,7 @@ input, select, option, button {
   }
   
 
-@media screen and (min-width: 412px) {
+@media screen and (min-width: 410px) {
     header{
         padding: 0px 50px;
     }
@@ -239,11 +239,9 @@ input, select, option, button {
     }
     h3{
         font: 15px;
-    
+        white-space: nowrap;
     }
-    h3:nth-child(2) {
-        white-space: normal;
-      }
+    
     .button-primary{
         margin-top: 3px;
     }

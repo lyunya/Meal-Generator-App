@@ -89,7 +89,7 @@ async function renderResults(){
   const meals = result.meals;
   const nutrientInformation =
   `<div>
-  <h3>Daily Meal Plan Nutritional Information</h3>
+  <h3 style="white-space:normal;">Daily Meal Plan Nutritional Information</h3>
   <p>${result.nutrients.calories} calories</p>
   <p>Protein: ${result.nutrients.protein} grams</p>
   <p>Fat: ${result.nutrients.fat} grams</p>
