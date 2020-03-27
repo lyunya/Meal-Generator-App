@@ -233,9 +233,13 @@ input, select, option, button {
 
 @media screen and (min-width: 414px) {
     header{
-        padding: 0px 80px;
+        padding: 0px 50px;
+    }
+    h2{
+        white-space: nowrap;
     }
     h3{
+        font: 15px;
         white-space: nowrap;
     }
     #calorieEntry{
@@ -250,6 +254,7 @@ input, select, option, button {
     header{
         padding: 0px 100px;
     }
+   
     #nutrientInfo{
         width: 30%;
     }
