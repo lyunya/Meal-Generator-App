@@ -102,7 +102,6 @@ async function renderResults(){
   else {
     foodResults= meals.map(item=>{
       return  `<div id="mealitem">
-      <h3>Meal Plan </h3>
       <a href = ${item.recipe_url} target="_blank"><p>${item.title}</p></a>
        <p>Minutes: ${item.readyInMinutes}</p>
        <p>Servings: ${item.servings}</p>
