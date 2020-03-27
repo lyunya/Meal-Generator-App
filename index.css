@@ -12,7 +12,6 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
     font-size: 16px;
-    
 }
 
 header{
@@ -85,13 +84,12 @@ section {
 }
 #calorieEntry{
     display: block;
-    margin-right: 10px;
 }
 
 form {
     margin-left: 4%;
     margin-right: 4%;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,11 +234,15 @@ input, select, option, button {
         padding: 0px 50px;
     }
     h2{
+        margin: 5px 0px;
         white-space: nowrap;
     }
     h3{
         font: 15px;
         white-space: nowrap;
+    }
+    .button-primary{
+        margin-top: 3px;
     }
     #calorieEntry{
         margin-right: 0px;
