@@ -9,7 +9,6 @@ const spinner = document.getElementsByClassName("lds-ring");
 //function to pass MealGenURL and recipeURL to make fetch call to spoonacular API w/ headers
 const fetchResults = (urlString) => {
   $('.lds-ring').attr('id','lds-ring-show');
-  console.log(urlString, "leons url string");
 return  fetch(urlString, {headers: {
 'x-rapidapi-key': apiKey,
 'X-RapidAPI-Host': apiHost
