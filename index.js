@@ -1,18 +1,15 @@
 let finalURL;
 let result = new Object();
-const apiKey = 'd8739849e9msh9de0a072a19f9edp1762cejsne12be3c09936';
-const apiHost = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
-const mealGenURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&';
+const apiKey = "215218cd31d947e4b8ad7fbdab162f61";
+const mealGenURL =
+  "https://api.spoonacular.com/mealplanner/generate?apiKey=215218cd31d947e4b8ad7fbdab162f61&timeFrame=day&";
 const spinner = document.getElementsByClassName("lds-ring");
 
 
 //function to pass MealGenURL and recipeURL to make fetch call to spoonacular API w/ headers
 const fetchResults = (urlString) => {
   $('.lds-ring').attr('id','lds-ring-show');
-return  fetch(urlString, {headers: {
-'x-rapidapi-key': apiKey,
-'X-RapidAPI-Host': apiHost
-}})
+return  fetch(urlString)
 .then(response => {
   if (response.ok) {
     return response.json();
@@ -67,16 +64,17 @@ async function setMealResults(){
   return result; 
 }
 
+
 //this takes the recipe ID of each meal, fetches the second endpoint with Recipe image, URL, and Description, and adds it to each meal array
-async function buildFinalResults(){
- await setMealResults();
- const meals=result.meals
- for(let i=0; i<meals.length; i++){
-  const recipeURL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${meals[i].id}/information`;
-  const recipeLinks = await fetchResults(recipeURL);
-  meals[i]["recipe_url"] = recipeLinks.sourceUrl
-  meals[i]["summary"] = recipeLinks.summary
-  meals[i].imageUrls = recipeLinks.image
+async function buildFinalResults() {
+  await setMealResults();
+  const meals = result.meals;
+  for (let i = 0; i < meals.length; i++) {
+    const recipeURL = `https://api.spoonacular.com/recipes/${meals[i].id}/information?apiKey=215218cd31d947e4b8ad7fbdab162f61`;
+    const recipeLinks = await fetchResults(recipeURL);
+    meals[i]["recipe_url"] = recipeLinks.sourceUrl;
+    meals[i]["summary"] = recipeLinks.summary;
+    meals[i].imageUrls = recipeLinks.image;
   }
   return result;
 }
